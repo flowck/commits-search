@@ -1,3 +1,4 @@
+import "./assets/css/main.css";
 import React from "react";
 import Home from "./views/Home";
 import Commits from "./views/Commits";
