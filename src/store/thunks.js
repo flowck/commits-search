@@ -1,3 +1,4 @@
+// import data from "./data.json";
 import { setCommits } from "./actions";
 const { REACT_APP_API } = process.env;
 const OPTIONS = {
@@ -14,7 +15,10 @@ export const getCommits = (query = "", page = 1) => async (dispatch) => {
       OPTIONS
     );
     const commits = await response.json();
+    // const commits = data;
 
     dispatch(setCommits(commits.items));
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
