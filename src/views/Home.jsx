@@ -1,9 +1,7 @@
-import { connect } from "react-redux";
 import styled from "styled-components";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import { getCommits } from "../store/thunks";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.section`
   top: 50%;
@@ -33,7 +31,14 @@ const ContainerButtons = styled.div`
 `;
 
 const Home = ({ onSearch }) => {
+  const history = useHistory();
   const [query, setQuery] = useState("");
+
+  const search = () => {
+    if (query) {
+      history.push(`/commits?q=${query}`);
+    }
+  };
 
   return (
     <Container>
@@ -45,17 +50,11 @@ const Home = ({ onSearch }) => {
       />
 
       <ContainerButtons>
-        <Link to="/commits">
-          <Button label="Search" click={() => onSearch(query)}></Button>
-        </Link>
+        <Button label="Search" click={search}></Button>
         <Button label="I'm Feeling Lucky"></Button>
       </ContainerButtons>
     </Container>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onSearch: (query) => dispatch(getCommits(query)),
-});
-
-export default connect(null, mapDispatchToProps)(Home);
+export default Home;
