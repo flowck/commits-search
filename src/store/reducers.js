@@ -1,4 +1,4 @@
-import { SET_COMMITS, GET_COMMITS } from "./actions";
+import { SET_COMMITS } from "./actions";
 
 const initialState = {
   commits: [],
