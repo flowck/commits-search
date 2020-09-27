@@ -7,7 +7,7 @@ const initialState = {
 export const search = (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_COMMITS:
-      return { ...state, commits: [...state.commits, ...payload] };
+      return { ...state, commits: payload };
     default:
       return state;
   }

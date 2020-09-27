@@ -1,6 +1,6 @@
 import "./assets/css/main.css";
 import React from "react";
-import Home from "./views/Home";
+import Home from "./views/Home/index";
 import Commits from "./views/Commits";
 import CommitsSingle from "./views/CommitsSingle";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
